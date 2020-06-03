@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.ucarinc.framework</groupId>
+        <artifactId>ucarinc-framework-parent</artifactId>
+        <version>6.0.33</version>
+    </parent>
+
+    <groupId>com.borgward.tsp</groupId>
+    <artifactId>tspvg</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <resource.delimiter>@</resource.delimiter>
+        <!-- test1,2,3 dev 公用SNAPSHOT-->
+        <binaryutil.version>1.0.0-SNAPSHOT</binaryutil.version>
+        <engine.version>1.0.0-SNAPSHOT</engine.version>
+        <baseutil.version>1.5.999-SNAPSHOT</baseutil.version>
+        <base.version>1.1.5-SNAPSHOT</base.version>
+        <basecache.version>1.5.999-SNAPSHOT</basecache.version>
+        <vgclient.version>1.1.5</vgclient.version>
+        <basedata.version>1.5.999-SNAPSHOT</basedata.version>
+        <vehcontrol.version>1.5.999-SNAPSHOT</vehcontrol.version>
+        <vgdata.version>1.5.999-SNAPSHOT</vgdata.version>
+        <upgrade.version>1.5.999-SNAPSHOT</upgrade.version>
+        <vgbase.version>1.2.1-SNAPSHOT</vgbase.version>
+        <lombok.version>1.16.14</lombok.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.ucarinc.framework</groupId>
+            <artifactId>ucarinc-framework-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ucarinc.framework</groupId>
+            <artifactId>ucarinc-framework-starter-dove</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ucarinc.framework</groupId>
+            <artifactId>ucarinc-framework-starter-dubbo</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ucarinc.framework</groupId>
+            <artifactId>ucarinc-framework-starter-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.tsp</groupId>
+            <artifactId>tsp-binary-util</artifactId>
+            <version>${binaryutil.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.borgward.binary</groupId>
+            <artifactId>engine</artifactId>
+            <version>${engine.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.tsp</groupId>
+            <artifactId>tsp-base-util</artifactId>
+            <version>${baseutil.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.code.gson</groupId>
+                    <artifactId>gson</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-aop</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.ucarinc.framework</groupId>
+                    <artifactId>ucarinc-framework-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.tsp</groupId>
+            <artifactId>tsp-base-common</artifactId>
+            <version>${base.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.tsp</groupId>
+            <artifactId>tsp-base-cache</artifactId>
+            <version>${basecache.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.tsp</groupId>
+            <artifactId>tspvgclient</artifactId>
+            <version>${vgclient.version}</version>
+        </dependency>
+
+        <!-- dubbo interface 基础数据-->
+        <dependency>
+            <groupId>com.tsp</groupId>
+            <artifactId>tspvgbasedata-client</artifactId>
+            <version>${basedata.version}</version>
+        </dependency>
+
+        <!-- dubbo interface 车控相关 -->
+        <dependency>
+            <groupId>com.tsp</groupId>
+            <artifactId>tspvehiclecontrol-client</artifactId>
+            <version>${vehcontrol.version}</version>
+        </dependency>
+
+        <!-- dubbo interface location -->
+        <dependency>
+            <groupId>com.tsp</groupId>
+            <artifactId>tspvgdata-client</artifactId>
+            <version>${vgdata.version}</version>
+        </dependency>
+
+        <!-- dubbo interface 远程升级 -->
+        <dependency>
+            <groupId>com.tsp</groupId>
+            <artifactId>upgradecenter-client</artifactId>
+            <version>${upgrade.version}</version>
+        </dependency>
+
+        <!-- dubbo interface vehicle-customer -->
+        <dependency>
+            <groupId>com.tsp</groupId>
+            <artifactId>tspvehiclecustomer-client</artifactId>
+            <version>1.0.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.tsp</groupId>
+            <artifactId>vgbase-common</artifactId>
+            <version>${vgbase.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+
+        <!-- spring test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.ow2.asm</groupId>
+                    <artifactId>asm</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>test</id>
+        </profile>
+        <profile>
+            <id>test2</id>
+        </profile>
+        <profile>
+            <id>test3</id>
+        </profile>
+        <profile>
+            <id>pre</id>
+            <properties>
+                <binaryutil.version>1.0.2</binaryutil.version>
+                <engine.version>1.1.0</engine.version>
+                <baseutil.version>1.0.1</baseutil.version>
+                <base.version>1.1.0</base.version>
+                <basecache.version>1.0.4</basecache.version>
+                <vgclient.version>1.1.5</vgclient.version>
+                <basedata.version>1.0.2</basedata.version>
+                <vehcontrol.version>1.0.2</vehcontrol.version>
+                <vgdata.version>1.0.3</vgdata.version>
+                <upgrade.version>1.0.1</upgrade.version>
+                <vgbase.version>1.0.8</vgbase.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <binaryutil.version>1.0.2</binaryutil.version>
+                <engine.version>1.1.0</engine.version>
+                <baseutil.version>1.0.1</baseutil.version>
+                <base.version>1.1.0</base.version>
+                <basecache.version>1.0.4</basecache.version>
+                <vgclient.version>1.1.5</vgclient.version>
+                <basedata.version>1.0.2</basedata.version>
+                <vehcontrol.version>1.0.2</vehcontrol.version>
+                <vgdata.version>1.0.3</vgdata.version>
+                <upgrade.version>1.0.1</upgrade.version>
+                <vgbase.version>1.0.8</vgbase.version>
+            </properties>
+        </profile>
+    </profiles>
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <url>http://maven.zuche.com/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus</id>
+            <url>http://maven.zuche.com/nexus/content/groups/public</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <filters>
+            <filter>src/main/filters/${env}.properties</filter>
+        </filters>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.tsp.vehiclegateway.BootstrapApplication</mainClass>
+                    <outputDirectory>${project.build.directory}/${project.build.finalName}</outputDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
